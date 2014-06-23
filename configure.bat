@@ -1,0 +1,1 @@
+mongo.exe -nodb configure.js
