@@ -1,11 +1,11 @@
-var hostNames = [
-	"mnab-dev14l:30000/admin",
-	"mnab-dev14l:30001/admin",
-	"mnab-dev14l:30002/admin",
+var hostnames = [
+	hostname() + ":30000/admin",
+	hostname() + ":30001/admin",
+	hostname() + ":30002/admin",
 ];
 
-hostNames.forEach(function(hostName){
-	var rsDb = connect(hostName);
+hostnames.forEach(function(hostname){
+	var rsDb = connect(hostname);
 	rsDb.runCommand({replSetInitiate: null});
 });
 
@@ -13,8 +13,8 @@ hostNames.forEach(function(hostName){
 // Would be nice to check instead of sleeping...
 sleep(5000);
 
-var mongosDb = connect("MNAB-DEV14L:27017/admin");
+var mongosDb = connect(hostname() + ":27017/admin");
 
-mongosDb.runCommand({addShard: "rs1/MNAB-DEV14L:30000"});
-mongosDb.runCommand({addShard: "rs2/MNAB-DEV14L:30001"});
-mongosDb.runCommand({addShard: "rs3/MNAB-DEV14L:30002"});
+mongosDb.runCommand({addShard: "rs1/" + hostname() + ":30000"});
+mongosDb.runCommand({addShard: "rs2/" + hostname() + ":30001"});
+mongosDb.runCommand({addShard: "rs3/" + hostname() + ":30002"});
