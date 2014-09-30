@@ -3,6 +3,7 @@ var hostnames = [
 	hostname() + ":30001/admin",
 	hostname() + ":30002/admin",
 	hostname() + ":30003/admin",
+	hostname() + ":30004/admin",
 ];
 
 hostnames.forEach(function(hostname){
@@ -20,3 +21,4 @@ mongosDb.runCommand({addShard: "rs1/" + hostname() + ":30000"});
 mongosDb.runCommand({addShard: "rs2/" + hostname() + ":30001"});
 mongosDb.runCommand({addShard: "rs3/" + hostname() + ":30002"});
 mongosDb.runCommand({addShard: "rs4/" + hostname() + ":30003"});
+mongosDb.runCommand({addShard: "rs5/" + hostname() + ":30004"});
