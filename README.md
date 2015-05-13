@@ -3,6 +3,8 @@ A set of windows scripts for running a mongo cluster on a single windows PC (for
 
 This lets you run a 5 node mongodb cluster on a window box. Each repliaset has a single data node. This is usefull for testing any cluster or shard tags.
 
+The scripts assume that mongo/mongod/mongos are in the current path.
+
 To install, run
 
 ```
@@ -19,7 +21,7 @@ To just run the cluster, you should run
 3_runAll.bat
 ```
 
-# Component ports #
+# Mongo Component Ports #
 Name|port|notes
 ----|----|-----
 mongos|27017|The default port
