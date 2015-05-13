@@ -18,3 +18,10 @@ To just run the cluster, you should run
 ```
 3_runAll.bat
 ```
+
+# Component ports #
+Name|port|notes
+----|----|-----
+mongos|27017|The default port
+repliset member 1-5|3000-30004|
+config server|27019|Single node
